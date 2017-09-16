@@ -11,5 +11,6 @@
     <string name="Change">$5.55</string>
 
     <string name="action_settings">Settings</string>
-    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_main2">Contributions</string>
+    <string name="title_activity_main3">Main3Activity</string>
 </resources>

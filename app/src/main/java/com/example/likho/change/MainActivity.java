@@ -1,5 +1,6 @@
 package com.example.likho.change;
 
+import android.content.Intent;
 import android.icu.text.DecimalFormat;
 import android.icu.text.NumberFormat;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +25,7 @@ import java.util.Locale;
 import java.util.Random;
 import java.util.logging.Handler;
 
+import static android.provider.AlarmClock.EXTRA_MESSAGE;
 import static android.widget.Toast.LENGTH_LONG;
 
 public class MainActivity extends AppCompatActivity
@@ -57,7 +60,7 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
 
-        balance1 = 5632;
+        balance1 = 5632.33;
         balance2 = 667.67;
         changeAmount = 5.57;
 
@@ -97,6 +100,7 @@ public class MainActivity extends AppCompatActivity
 
 
     public void action(View v){
+
         double floor1 = Math.floor(balance2); // finds the rounded number
         double cent = balance2 - floor1; // finds the remaining cents
         balance2 = floor1;
@@ -107,6 +111,18 @@ public class MainActivity extends AppCompatActivity
         String b = "$"+formattedString;
         bank2.setText(a);
         change.setText(b);
+
+        double floor2 = Math.floor(balance1); // finds the rounded number
+        double cent2 = balance1 - floor2; // finds the remaining cents
+        balance1 = floor2;
+        changeAmount += cent2;
+
+        formattedString = String.format(ft.format(changeAmount));
+        String c = "$"+balance1;
+        String d = "$"+formattedString;
+        bank1.setText(c);
+        change.setText(d);
+
     }
 
 
@@ -115,7 +131,8 @@ public class MainActivity extends AppCompatActivity
         int integer = rand.nextInt(50);
         double number = decimal+integer;
 
-        balance2 -= number;
+        if(number<balance2)
+            balance2 -= number;
         text1 = "$"+ft.format(balance2);
         bank2.setText(text1);
     }
@@ -164,6 +181,9 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
+            Intent i = new Intent(MainActivity.this, Main2Activity.class);
+            startActivity(i);
+            //break;
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
