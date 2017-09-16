@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Fraxion</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="BankNameOne">One Bank</string>
+    <string name="BankNameTwo">Bank of La La Land</string>
+
+    <string name="AmountOne">$5000</string>
+    <string name="AmountTwo">$660</string>
+    <string name="Change">$5.55</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main2">Main2Activity</string>
+</resources>
