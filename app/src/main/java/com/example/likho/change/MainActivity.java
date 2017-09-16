@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity
         bank1.setText(text1);
         bank2.setText(text2);
         change.setText(text3);
+        int x;
 
 
 
